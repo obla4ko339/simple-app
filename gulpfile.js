@@ -1,6 +1,9 @@
 const {src, dest, parallel } = require('gulp');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
+
 
 function js(){
     return src('./src/js/main.js')
@@ -29,7 +32,16 @@ function html(){
     .pipe(dest('./dist'))
 }
 
+function css(){
+    return src('./src/css/style.scss')
+    .pipe(sass())
+    .pipe(dest('./dist/css'));
+}
+
+
+
 exports.js =js;
 exports.html = html;
+exports.css = css;
 
-exports.default = parallel([js, html]);
+exports.default = parallel([js, html, css]);
