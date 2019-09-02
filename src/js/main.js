@@ -1,6 +1,10 @@
 import {Title} from './components/Title'
 import {Desc} from './components/Desc'
 
-Title("Hello, Gulp");
-Desc();
+import Counter from './Counter'
+
+const counter = new Counter(document.getElementById('counter'));
+
+
+
 
