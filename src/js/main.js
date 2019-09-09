@@ -1,19 +1,42 @@
-import {BaseButtons,PrettyButton, FunctionalButton, ButtonExp} from './components/Buttons'
+import DomWorker from './DomWorker'
+
+import TitleComponent from './components/TitleComponent';
+import ListComponent from './components/ListComponent';
+import CenterComponent from './components/CenterComponent'
+
+const names = [
+    'Harre', 'Rohn', 'Juny', 'Germiona'
+];
+
+DomWorker.mount(new TitleComponent('Pro'), document.getElementById('title'));
+
+DomWorker.mount(new ListComponent(names), document.getElementById('list'));
+
+DomWorker.mount(new CenterComponent(
+    new ListComponent(names)
+), document.getElementById('center'));
+
+const button = document.createElement('button');
+button.innerText = "click"
+
+DomWorker.mount(new CenterComponent(button),
+ document.getElementById('center_second'))
 
 
-const baseBtn = new BaseButtons("footer", "base");
-baseBtn.render();
+ const brush = {
+    color:'',
 
-const prettyBtn = new PrettyButton("footer", "Pretty", "pretty-btn");
-prettyBtn.render();
+    createComponent:()=>{console.log('I`am Programmer')},
 
-const FunctionalBtn = new FunctionalButton("footer","functional","Pretty", ()=>{
-    alert();
-});
-FunctionalBtn.render();
+     render: function(canvas){
+        canvas.style.width = "250px",
+        canvas.style.height = "250px",
+        canvas.style.backgroundColor = this.color
+     },
+     setColor: function(color){
+        this.color = color;
+        return this;
+     }
+ }
 
-const buttonExp = new ButtonExp("footer", "Кнопачуля", "click", ()=>{alert()});
-buttonExp.render();
-
-
-
+ DomWorker.mount(brush.setColor('red'), document.getElementById('other'))
