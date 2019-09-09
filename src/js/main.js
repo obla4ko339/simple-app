@@ -1,9 +1,11 @@
-import {Title} from './components/Title'
-import {Desc} from './components/Desc'
+import {BaseButtons,PrettyButton, FunctionalButton} from './components/Buttons'
 
-import Counter from './Counter'
 
-const counter = new Counter(document.getElementById('counter'));
+const baseBtn = new BaseButtons("footer", "base");
+baseBtn.render();
+
+const prettyBtn = new PrettyButton("footer", "Pretty", "pretty-btn");
+prettyBtn.render();
 
 
 
