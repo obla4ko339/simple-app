@@ -12,7 +12,6 @@ export default class FunctionslButton extends PrettyButton{
         btn.innerText = this.value ? this.value : "";
         btn.classList.add(this.className);
         btn.addEventListener('click', this.handlerClick);
-
         this.container.appendChild(btn);
     }
 }
