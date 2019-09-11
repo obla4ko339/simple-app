@@ -3,6 +3,8 @@ import DomWorker from './DomWorker'
 import TitleComponent from './components/TitleComponent';
 import ListComponent from './components/ListComponent';
 import CenterComponent from './components/CenterComponent'
+import BtnComponent from './components/BtnComponent';
+
 
 const names = [
     'Harre', 'Rohn', 'Juny', 'Germiona'
@@ -21,6 +23,10 @@ button.innerText = "click"
 
 DomWorker.mount(new CenterComponent(button),
  document.getElementById('center_second'))
+
+ DomWorker.mount(new BtnComponent(), 
+    document.getElementById('center')
+ )
 
 
  const brush = {
