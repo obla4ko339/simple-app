@@ -1,48 +1,45 @@
-import DomWorker from './DomWorker'
+import $ from 'jquery'
 
-import TitleComponent from './components/TitleComponent';
-import ListComponent from './components/ListComponent';
-import CenterComponent from './components/CenterComponent'
-import BtnComponent from './components/BtnComponent';
+$(document).ready(function(){
+  
+      // let s = $('.list_second li a')[3].attr("data-secret");
+      // console.log(s)
+      
 
+   const square = $("#square");
+   const btn = $("#btn");
+   
 
-const names = [
-    'Harre', 'Rohn', 'Juny', 'Germiona'
-];
+   btn.click(()=>{
+      square.toggleClass('square-soft');
+   })
+   
 
-DomWorker.mount(new TitleComponent('Pro'), document.getElementById('title'));
+   square.mouseenter(function(){
+      $(this).css({
+         'background-color':'#000',
+         'border-radius':'40px'
+      });
 
-DomWorker.mount(new ListComponent(names), document.getElementById('list'));
+      btn.css({
+         'width':'200px'
+      });
+   })
 
-DomWorker.mount(new CenterComponent(
-    new ListComponent(names)
-), document.getElementById('center'));
+   square.mouseleave(function(){
+      $(this).css({
+         'background-color':'red',
+         'border-radius':'40px'
+      });
 
-const button = document.createElement('button');
-button.innerText = "click"
+      btn.css({
+         'width':'initial'
+      });
+   })
+  
+     
+      
+     
 
-DomWorker.mount(new CenterComponent(button),
- document.getElementById('center_second'))
+});
 
- DomWorker.mount(new BtnComponent(), 
-    document.getElementById('center')
- )
-
-
- const brush = {
-    color:'',
-
-    createComponent:()=>{console.log('I`am Programmer')},
-
-     render: function(canvas){
-        canvas.style.width = "250px",
-        canvas.style.height = "250px",
-        canvas.style.backgroundColor = this.color
-     },
-     setColor: function(color){
-        this.color = color;
-        return this;
-     }
- }
-
- DomWorker.mount(brush.setColor('red'), document.getElementById('other'))
