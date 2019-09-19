@@ -1,0 +1,41 @@
+.todo-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .todo-form{
+        input[type="text"]{
+            
+        }
+        input[type="button"]{
+            width: 100%;
+        }
+
+    }
+    .todo-list{
+        max-width: 600px;
+        width: 100%;
+
+        .todo{
+            display: flex;
+            justify-content: space-between;
+            span{
+                margin: 0 15px;
+            }
+           
+        }
+      
+        .todo-close{
+            span{
+                text-decoration: line-through;
+                
+
+            }
+            
+        }
+    }
+
+   
+
+    
+}

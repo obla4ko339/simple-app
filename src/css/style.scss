@@ -9,14 +9,8 @@ body{
         list-style-type: none;
     }
 
-  .todo{
-
-  }
-
-  .todo-close{
-      text-decoration: line-through;
-  }
-   
+  
+    @import './todo-list.scss'
 
   
 }
